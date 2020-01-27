@@ -102,6 +102,9 @@ parser.add_argument('--output_image_dir', default='../output/images/',
 parser.add_argument('--output_scene_dir', default='../output/scenes/',
                     help="The directory where output JSON scene structures will be stored. " +
                          "It will be created if it does not exist.")
+parser.add_argument('--output_log_file', default='../output/render.log',
+                    help="The directory where output JSON scene structures will be stored. " +
+                         "It will be created if it does not exist.")
 parser.add_argument('--output_scene_file', default='../output/CLEVR_scenes.json',
                     help="Path to write a single JSON file containing all scene information")
 parser.add_argument('--output_blend_dir', default='output/blendfiles',
@@ -222,7 +225,7 @@ def render_scene(args,
                  output_blendfile=None,
                  angles=1
                  ):
-    logfile = 'blender_render.log'
+    logfile = args.output_log_file
     open(logfile, 'a').close()
 
     # start suppressing output
@@ -617,8 +620,9 @@ def render_shadeless(blender_objects, path='flat.png'):
 if __name__ == '__main__':
     if INSIDE_BLENDER:
         # Run normally
-        # argv = utils.extract_args()
-        args = parser.parse_args(sys.argv[4:])
+        argv = utils.extract_args()
+        # args = parser.parse_args(sys.argv[4:])
+        args = parser.parse_args(argv)
         main(args)
     elif '--help' in sys.argv or '-h' in sys.argv:
         parser.print_help()
