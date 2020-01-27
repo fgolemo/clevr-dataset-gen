@@ -1,3 +1,11 @@
+### MISC
+
+invocation 
+
+    blender --background --python render_images.py --angles 20 --num_images 2000 --render_num_samples 64 --use_gpu 1 --output_scene_file /data/fgolemo/clevr-kiwi/scenes.json --output_scene_dir /data/fgolemo/clevr-kiwi/scenes --output_image_dir /data/fgolemo/clevr-kiwi/images
+
+
+
 # CLEVR Dataset Generation
 
 This is the code used to generate the [CLEVR dataset](http://cs.stanford.edu/people/jcjohns/clevr/) as described in the paper:
