@@ -3,3 +3,5 @@ __pycache__/
 *.swp
 *.pyc
 output/
+image_generation/blender_render.log
+.idea/
